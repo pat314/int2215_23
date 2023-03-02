@@ -4,15 +4,10 @@
 
 using namespace std;
 
-int gcd (long long a, long long b)
+int gcd (long long x, long long y)
 {
-	while (b)
-	{
-		long long tmp = b;
-		b = a % b;
-		a = tmp;
-	}
-	if (b == 0) return a;
+	while (x ^=y ^=x ^=y %=x);
+	return y;
 }
 
 int main ()
